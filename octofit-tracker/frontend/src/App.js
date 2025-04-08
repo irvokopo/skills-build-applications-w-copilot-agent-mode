@@ -7,6 +7,7 @@ import Users from './components/Users';
 import Workouts from './components/Workouts';
 import './App.css';
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -14,25 +15,33 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="logo" alt="OctoFit Logo" />
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/activities">Activities</Link></li>
-              <li><Link to="/leaderboard">Leaderboard</Link></li>
-              <li><Link to="/teams">Teams</Link></li>
-              <li><Link to="/users">Users</Link></li>
-              <li><Link to="/workouts">Workouts</Link></li>
-            </ul>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container-fluid">
+              <a className="navbar-brand" href="#">OctoFit</a>
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
+                  <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+                  <li className="nav-item"><Link className="nav-link" to="/activities">Activities</Link></li>
+                  <li className="nav-item"><Link className="nav-link" to="/leaderboard">Leaderboard</Link></li>
+                  <li className="nav-item"><Link className="nav-link" to="/teams">Teams</Link></li>
+                  <li className="nav-item"><Link className="nav-link" to="/users">Users</Link></li>
+                  <li className="nav-item"><Link className="nav-link" to="/workouts">Workouts</Link></li>
+                </ul>
+              </div>
+            </div>
           </nav>
         </header>
-        <main>
+        <main className="container mt-4">
           <Routes>
             <Route path="/activities" element={<Activities />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/teams" element={<Teams />} />
             <Route path="/users" element={<Users />} />
             <Route path="/workouts" element={<Workouts />} />
-            <Route path="/" element={<h1>Welcome to OctoFit Tracker</h1>} />
+            <Route path="/" element={<h1 className="text-center">Welcome to OctoFit Tracker</h1>} />
           </Routes>
         </main>
       </div>
